@@ -76,5 +76,26 @@ class Cuti extends CI_Controller {
 
 		redirect('Cuti/view_admin/'.$id_user);
 	}
+
+	public function cetak_pengajuan_cuti($idUser) {
+		//load library dompdf
+		$this->load->library('pdf');
+
+		$cuti = $this->m_cuti->get_all_cuti_by_id_user($idUser)->result_array();
+		$dataKaryawan = $this->m_user->get_karyawan_by_id($idUser)->row_array();
+
+		$this->printData['nama_lengkap'] = $dataKaryawan['nama_lengkap'];
+		$this->printData['cuti'] = $cuti;
+
+		$filename = "pengajuan-cuti-".$dataKaryawan['nama_lengkap']."_".date("YmdHis");
+
+		$paperSize = 'A4';
+		$orientation = "portrait";
+
+		$template = $this->load->view('karyawan/template/cetak-pengajuan-cuti', $this->printData, true); 
+
+        // generate dompdf
+		$this->pdf->generate($template, $filename, $paperSize, $orientation);
+	}
     
 }
