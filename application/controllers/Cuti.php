@@ -10,7 +10,7 @@ class Cuti extends CI_Controller {
 		$this->load->model('m_user');
 		$this->load->model('m_jenis_kelamin');
 	}
-    
+
 	public function view_admin()
 	{
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
@@ -29,11 +29,11 @@ class Cuti extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
 
-		$data['cuti'] = $this->m_cuti->get_all_cuti_by_id_user($id_user)->result_array();
-		$data['karyawan'] = $this->m_user->get_karyawan_by_id($this->session->userdata('id_user'))->row_array();
-		$data['jenis_kelamin'] = $this->m_jenis_kelamin->get_all_jenis_kelamin()->result_array();
-		$data['karyawan_data'] = $this->m_user->get_karyawan_by_id($this->session->userdata('id_user'))->result_array();
-		$this->load->view('karyawan/cuti', $data);
+			$data['cuti'] = $this->m_cuti->get_all_cuti_by_id_user($id_user)->result_array();
+			$data['karyawan'] = $this->m_user->get_karyawan_by_id($this->session->userdata('id_user'))->row_array();
+			$data['jenis_kelamin'] = $this->m_jenis_kelamin->get_all_jenis_kelamin()->result_array();
+			$data['karyawan_data'] = $this->m_user->get_karyawan_by_id($this->session->userdata('id_user'))->result_array();
+			$this->load->view('karyawan/cuti', $data);
 
 		}else{
 
@@ -45,12 +45,22 @@ class Cuti extends CI_Controller {
 	public function hapus_cuti()
 	{
 
+		date_default_timezone_set('Asia/Jakarta');
+		$date = date('Y-m-d');
+
 		$id_cuti = $this->input->post("id_cuti");
 		$id_user = $this->input->post("id_user");
 
-		$hasil = $this->m_cuti->delete_cuti($id_cuti);
+		$data = array(
+			'deleted' => 1,
+			'tgl_dihapus' => $date
+		);
+
+		$updated = $this->m_cuti->soft_delete_cuti(array('id_cuti' => $id_cuti), $data);
+
+		// $hasil = $this->m_cuti->delete_cuti($id_cuti);
 		
-		if($hasil==false){
+		if(empty($updated)){
 			$this->session->set_flashdata('eror_hapus','eror_hapus');
 		}else{
 			$this->session->set_flashdata('hapus','hapus');
@@ -76,5 +86,26 @@ class Cuti extends CI_Controller {
 
 		redirect('Cuti/view_admin/'.$id_user);
 	}
-    
+
+	public function cetak_pengajuan_cuti($idUser) {
+		//load library dompdf
+		$this->load->library('pdf');
+
+		$cuti = $this->m_cuti->get_all_cuti_by_id_user($idUser)->result_array();
+		$dataKaryawan = $this->m_user->get_karyawan_by_id($idUser)->row_array();
+
+		$this->printData['nama_lengkap'] = $dataKaryawan['nama_lengkap'];
+		$this->printData['cuti'] = $cuti;
+
+		$filename = "pengajuan-cuti-".$dataKaryawan['nama_lengkap']."_".date("YmdHis");
+
+		$paperSize = 'A4';
+		$orientation = "portrait";
+
+		$template = $this->load->view('karyawan/template/cetak-pengajuan-cuti', $this->printData, true); 
+
+        // generate dompdf
+		$this->pdf->generate($template, $filename, $paperSize, $orientation);
+	}
+
 }

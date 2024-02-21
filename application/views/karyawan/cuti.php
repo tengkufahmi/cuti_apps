@@ -61,6 +61,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Cuti</h3>
+                                    <span class="btn btn-info btn-sm ml-3" onclick="printData()"><i class="nav-icon fas fa-print"></i> Cetak Data : <?php echo $karyawan['nama_lengkap']?></span>
                                 </div>
                                
                                 <div class="card-body">
@@ -193,9 +194,79 @@
             </section>
         </div>
         <aside class="control-sidebar control-sidebar-dark"> </aside>
+
     </div>
 
-    <?php $this->load->view("karyawan/components/js.php") ?>
+<script type="text/javascript">
+    function printData() {
+        var idUser = "<?php echo $karyawan['id_user']?>";
+        var url = "<?php echo site_url('Cuti/cetak_pengajuan_cuti/') ?>"+idUser;
+        document.location = url;
+        // console.log(idUser);
+    }
+</script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/jquery/jquery.min.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<script>
+$.widget.bridge('uibutton', $.ui.button)
+</script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/chart.js/Chart.min.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/sparklines/sparkline.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/jquery-knob/jquery.knob.min.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
+</script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/summernote/summernote-bs4.min.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/dist/js/adminlte.js"></script>
+
+<!-- <script src="<?= base_url();?>assets/admin_lte/dist/js/demo.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/dist/js/pages/dashboard.js"></script>
+
+<script src="<?= base_url();?>assets/admin_lte/dist/js/pages/dashboard.js"></script> -->
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/jszip/jszip.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script>
+$(function() {
+    $("#example1").DataTable({
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": true,
+        "buttons": ["colvis"],
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+});
+</script>
+
 </body>
+
 
 </html>

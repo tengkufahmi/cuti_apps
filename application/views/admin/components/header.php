@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 <link rel="stylesheet"
-    href="<?= base_url();?>assets/admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+href="<?= base_url();?>assets/admin_lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
@@ -32,3 +32,14 @@
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 <link rel="stylesheet" href="<?= base_url();?>assets/style.css">
+
+<!-- Select2 -->
+<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+<!-- Select2 -->
+<script src="<?= base_url();?>assets/admin_lte/plugins/select2/js/select2.full.min.js"></script>
+
+<script type="text/javascript">
+    var table;
+</script>
