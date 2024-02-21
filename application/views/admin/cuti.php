@@ -214,7 +214,7 @@
                                                                         <input type="hidden" name="id_user"
                                                                             value="<?php echo $id_user?>" />
 
-                                                                        <p>Apakah kamu yakin ingin Menolak Izin Cutiini?</i></b></p>
+                                                                        <p>Apakah kamu yakin ingin Menolak Izin Cuti ini?</i></b></p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">

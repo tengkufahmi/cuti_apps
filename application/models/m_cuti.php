@@ -5,13 +5,13 @@ class M_cuti extends CI_Model
 
     public function get_all_cuti()
     {
-        $hasil = $this->db->query('SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail ORDER BY user_detail.nama_lengkap ASC');
+        $hasil = $this->db->query('SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail WHERE cuti.deleted = 0 ORDER BY user_detail.nama_lengkap ASC');
         return $hasil;
     }
 
     public function get_all_cuti_by_id_user($id_user)
     {
-        $hasil = $this->db->query("SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail WHERE cuti.id_user='$id_user'");
+        $hasil = $this->db->query("SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail WHERE cuti.id_user='$id_user' and cuti.deleted = 0");
         return $hasil;
     }
 
@@ -47,6 +47,12 @@ class M_cuti extends CI_Model
             return true;
         else
             return false;
+    }
+
+    public function soft_delete_cuti($where, $data)
+    {
+        $this->db->update('cuti', $data, $where);
+        return $this->db->affected_rows();
     }
 
     public function update_cuti($perihal_cuti, $tgl_diajukan, $mulai, $berakhir, $id_cuti)

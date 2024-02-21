@@ -48,6 +48,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url();?>Laporan/view_admin" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>Laporan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url();?>Settings/view_admin" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>Settings</p>
