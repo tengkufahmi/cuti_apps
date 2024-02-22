@@ -149,16 +149,7 @@
                         </div>
                     </div>
 
-                    <h1>Syarat Permohonan Cuti</h1>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-text"> ----- </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </section>
         </div>
