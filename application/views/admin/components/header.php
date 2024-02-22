@@ -17,7 +17,7 @@ href="<?= base_url();?>assets/admin_lte/plugins/tempusdominus-bootstrap-4/css/te
 
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/jqvmap/jqvmap.min.css">
 
-<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/dist/css/adminltev2.css">
 
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
