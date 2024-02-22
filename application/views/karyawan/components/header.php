@@ -31,4 +31,4 @@
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-<link rel="stylesheet" href="<?= base_url();?>assets/style.css">
+<link rel="stylesheet" href="<?= base_url();?>assets/stylev2.css">
