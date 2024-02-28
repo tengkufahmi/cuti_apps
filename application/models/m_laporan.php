@@ -6,8 +6,9 @@ class M_laporan extends CI_Model
     var $cuti           = 'cuti as a';
     var $user           = 'user as b';
     var $user_detail    = 'user_detail as c';
+    var $jenis_cuti     = 'jenis_cuti as d';
 
-    var $column_order = array(null, 'c.nama_lengkap', null, null, null, null, null);
+    var $column_order = array(null, 'c.nama_lengkap', null, null, null, null, null, null);
     var $column_search = array('c.nama_lengkap');
     var $order = array('c.nama_lengkap' => 'asc');
 
@@ -36,12 +37,14 @@ class M_laporan extends CI_Model
             a.tgl_diajukan,
             a.mulai,
             a.berakhir,
+            d.jenis_cuti,
             a.perihal_cuti,
             a.id_status_cuti
             ');
         $this->db->from($this->cuti);
         $this->db->join($this->user, 'a.id_user=b.id_user');
         $this->db->join($this->user_detail, 'b.id_user_detail=c.id_user_detail');
+        $this->db->join($this->jenis_cuti, 'a.id_jenis_cuti=d.id_jenis_cuti');
 
         $i = 0;
 

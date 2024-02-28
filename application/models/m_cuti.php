@@ -9,9 +9,22 @@ class M_cuti extends CI_Model
         return $hasil;
     }
 
+    public function get_all_cuti_v2()
+    {
+        $hasil = $this->db->query('SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail JOIN jenis_cuti ON cuti.id_jenis_cuti = jenis_cuti.id_jenis_cuti WHERE cuti.deleted = 0 ORDER BY user_detail.nama_lengkap ASC');
+        return $hasil;
+    }
+
+
     public function get_all_cuti_by_id_user($id_user)
     {
         $hasil = $this->db->query("SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail WHERE cuti.id_user='$id_user' and cuti.deleted = 0");
+        return $hasil;
+    }
+
+    public function get_all_cuti_by_id_user_v2($id_user)
+    {
+        $hasil = $this->db->query("SELECT * FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail JOIN jenis_cuti ON cuti.id_jenis_cuti = jenis_cuti.id_jenis_cuti WHERE cuti.id_user='$id_user' and cuti.deleted = 0");
         return $hasil;
     }
 
@@ -27,10 +40,10 @@ class M_cuti extends CI_Model
         return $hasil;
     }
 
-    public function insert_data_cuti($id_cuti, $id_user, $mulai, $berakhir, $id_status_cuti, $perihal_cuti)
+    public function insert_data_cuti($id_cuti, $id_user, $mulai, $berakhir, $id_status_cuti, $perihal_cuti, $jenis_cuti)
     {
         $this->db->trans_start();
-        $this->db->query("INSERT INTO cuti(id_cuti, id_user, tgl_diajukan, mulai, berakhir, id_status_cuti, perihal_cuti) VALUES ('$id_cuti','$id_user',NOW(),'$mulai', '$berakhir', '$id_status_cuti', '$perihal_cuti')");
+        $this->db->query("INSERT INTO cuti(id_cuti, id_user, tgl_diajukan, mulai, berakhir, id_status_cuti, perihal_cuti, id_jenis_cuti) VALUES ('$id_cuti','$id_user',NOW(),'$mulai', '$berakhir', '$id_status_cuti', '$perihal_cuti', '$jenis_cuti')");
         $this->db->trans_complete();
         if($this->db->trans_status()==true)
             return true;
@@ -77,7 +90,7 @@ class M_cuti extends CI_Model
             return false;
     }
 
-   
+
     public function count_all_cuti()
     {
         $hasil = $this->db->query('SELECT COUNT(id_cuti) as total_cuti FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail');
@@ -124,6 +137,21 @@ class M_cuti extends CI_Model
     {
         $hasil = $this->db->query("SELECT COUNT(id_cuti) as total_cuti FROM cuti JOIN user ON cuti.id_user = user.id_user JOIN user_detail ON user.id_user_detail = user_detail.id_user_detail WHERE id_status_cuti=3 AND cuti.id_user='$id_user'");
         return $hasil;
+    }
+
+    public function get_all_jenis_cuti()
+    {   
+        $this->db->from('jenis_cuti');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function get_jenis_cuti_by_id($id)
+    {   
+        $this->db->from('jenis_cuti');
+        $this->db->where('id_jenis_cuti', $id);
+        $query = $this->db->get();
+        return $query->row();
     }
 
 

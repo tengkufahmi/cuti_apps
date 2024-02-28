@@ -15,7 +15,7 @@ class Cuti extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
 
-			$data['cuti'] = $this->m_cuti->get_all_cuti()->result_array();
+			$data['cuti'] = $this->m_cuti->get_all_cuti_v2()->result_array();
 			$this->load->view('admin/cuti', $data);
 
 		}else{
@@ -29,7 +29,7 @@ class Cuti extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
 
-			$data['cuti'] = $this->m_cuti->get_all_cuti_by_id_user($id_user)->result_array();
+			$data['cuti'] = $this->m_cuti->get_all_cuti_by_id_user_v2($id_user)->result_array();
 			$data['karyawan'] = $this->m_user->get_karyawan_by_id($this->session->userdata('id_user'))->row_array();
 			$data['jenis_kelamin'] = $this->m_jenis_kelamin->get_all_jenis_kelamin()->result_array();
 			$data['karyawan_data'] = $this->m_user->get_karyawan_by_id($this->session->userdata('id_user'))->result_array();
@@ -107,5 +107,7 @@ class Cuti extends CI_Controller {
         // generate dompdf
 		$this->pdf->generate($template, $filename, $paperSize, $orientation);
 	}
+
+	
 
 }

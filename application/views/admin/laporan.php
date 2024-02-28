@@ -153,6 +153,7 @@
                                 <th>Tanggal Diajukan</th>
                                 <th>Mulai</th>
                                 <th>Berakhir</th>
+                                <th>Jenis Cuti</th>
                                 <th>Perihal Cuti</th>
                                 <th>Status Cuti</th>
                             </tr>
