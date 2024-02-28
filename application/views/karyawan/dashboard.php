@@ -149,7 +149,42 @@
                         </div>
                     </div>
 
+                    <h1>Syarat Permohonan Cuti</h1>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text"> Cuti Bepergian : (Maksimal 3 Hari) </p>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text"> Cuti Hamil : (Maksimal 4 Bulan) </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text"> Cuti Sakit : (Maksimal 7 Hari) </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text"> Cuti Penting : (Maksimal 1 Bulan) </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

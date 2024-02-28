@@ -17,7 +17,7 @@
 
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/jqvmap/jqvmap.min.css">
 
-<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/dist/css/adminltev3.css">
 
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
@@ -32,3 +32,10 @@
 <link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
 <link rel="stylesheet" href="<?= base_url();?>assets/stylev2.css">
+
+<!-- Select2 -->
+<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="<?= base_url();?>assets/admin_lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+<!-- Select2 -->
+<script src="<?= base_url();?>assets/admin_lte/plugins/select2/js/select2.full.min.js"></script>

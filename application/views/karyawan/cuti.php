@@ -73,6 +73,7 @@
                                                 <th>Tanggal Diajukan</th>
                                                 <th>Mulai</th>
                                                 <th>Berakhir</th>
+                                                <th>Jenis Cuti</th>
                                                 <th>Perihal Cuti</th>
                                                 <th>Status Cuti</th>
                                                 <th>Aksi</th>
@@ -93,6 +94,7 @@
                                         $berakhir = $i['berakhir'];
                                         $id_status_cuti = $i['id_status_cuti'];
                                         $perihal_cuti = $i['perihal_cuti'];
+                                        $jenis_cuti = $i['jenis_cuti'];
 
                                         ?>
                                             <tr>
@@ -101,7 +103,8 @@
                                                 <td><?= $tgl_diajukan ?></td>
                                                 <td><?= $mulai ?></td>
                                                 <td><?= $berakhir ?></td>
-                                                <td><?=$perihal_cuti?></td>
+                                                <td><?= $jenis_cuti?></td>
+                                                <td><?= $perihal_cuti?></td>
                                                 <td><?php if($id_status_cuti == 1){ ?>
                                                     <div class="table-responsive">
                                                         <div class="table table-striped table-hover ">

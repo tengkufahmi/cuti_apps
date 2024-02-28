@@ -66,6 +66,7 @@ class Laporan extends CI_Controller {
 			$row[] 	= $ls->tgl_diajukan;
 			$row[] 	= $ls->mulai;
 			$row[] 	= $ls->berakhir;
+			$row[] 	= $ls->jenis_cuti;
 			$row[] 	= $ls->perihal_cuti;
 
 			if($ls->id_status_cuti == 1) {
