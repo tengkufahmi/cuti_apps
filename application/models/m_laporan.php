@@ -102,10 +102,6 @@ public function getData()
 }
 
 public function exportDataCuti($userId, $startDate, $endDate) {
-    var_dump($userId);
-    var_dump($startDate);
-    var_dump($endDate);
-    
 
     if ($userId != "0") {
         $this->db->where('a.id_user ', $userId);
