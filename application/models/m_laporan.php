@@ -131,7 +131,6 @@ public function exportDataCuti($userId, $startDate, $endDate) {
     $this->db->join($this->user_detail, 'b.id_user_detail=c.id_user_detail');
 
     $query = $this->db->get();
-    $query->result_array();
     return $query->result_array();
 }
 
