@@ -87,6 +87,50 @@ class Cuti extends CI_Controller {
 		redirect('Cuti/view_admin/'.$id_user);
 	}
 
+
+	public function acc_cuti_admin_v2()
+	{
+
+		$jsonData = file_get_contents("php://input");
+
+		$data = json_decode($jsonData, true);
+
+		$response = array();
+
+		if ($data !== null) {
+
+			$id_cuti = $data['id_cuti'];
+
+			$array_data = array(
+				'id_status_cuti' => 2
+			);
+
+			$hasil = $this->m_cuti->updateCuti(array('id_cuti' => $id_cuti), $array_data);
+
+			if(empty($hasil)){
+				$response = array(
+					'status' => 'error', 
+					'message' => 'Gagal melakukan approval cuti'
+				);
+			} else {
+
+				$response = array(
+					'status' => 'success', 
+					'message' => 'Cuti berhasil disetujui!'
+				);
+			}
+
+		} else {
+			http_response_code(400); 
+			$response = array(
+				'status' => 'error', 
+				'message' => 'Terjadi kesalahan. Gagal melakukan approval cuti.'
+			);
+		}
+
+		echo json_encode($response);
+	}
+
 	public function cetak_pengajuan_cuti($idUser) {
 		//load library dompdf
 		$this->load->library('pdf');
