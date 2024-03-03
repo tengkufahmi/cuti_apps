@@ -84,20 +84,6 @@
                         </div>
 
                         <div class="col-lg-3 col-6">
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3><?= $cuti_reject['total_cuti'] ?></h3>
-
-                                    <p>Data Cuti Ditolak</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="<?= base_url(); ?>Cuti/view_karyawan/<?= $this->session->userdata('id_user'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
                                     <h3><?= $cuti_confirm['total_cuti'] ?></h3>
@@ -110,6 +96,7 @@
                                 <a href="<?= base_url(); ?>Cuti/view_karyawan/<?= $this->session->userdata('id_user'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+                        
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
